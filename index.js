@@ -1,13 +1,29 @@
-const express = require('express');
+require('dotenv').config()
 
-const port = process.env.PORT || 8080;
+const express = require('express')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const chalk = require('chalk')
 
-const app = express();
+const apiCatRoute = require('./api/routes/cat.route')
 
-app.get('/', (req, res) => {
-  res.send('👋 Chao Xin');
-});
+const app = express()
+const router = express.Router()
 
-app.listen(port, () => {
-  console.log(`Server started on ${port}`);
-});
+const port = process.env.PORT || 8080
+
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+router.get('/', (req, res) => {
+	res.json({ message: '👋 chao xin! welcome to my api!' })
+})
+
+app.use('/api', router)
+app.use('/api/cats', apiCatRoute)
+
+app.listen(port, () => 
+	console.log(chalk.bgGreen(`app is running on port ${port}`))
+)
