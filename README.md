@@ -2,6 +2,8 @@
 
 > 🚀🌳 Build a Rest API using Swagger.
 
+![screenshot](images/screenshot.png)
+
 ## Quick start
 
 ### Install dependencies
@@ -15,6 +17,8 @@ $ yarn
 ```sh
 $ yarn start
 ```
+
+Go to [here](http://127.0.0.1:9000/docs) to view api documents.
 
 ## API
 
