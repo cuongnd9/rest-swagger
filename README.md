@@ -2,7 +2,7 @@
 
 > 🚀🌳 Build a Rest API using Swagger.
 
-![screenshot]('./images/screenshot.png')
+![screenshot](images/screenshot.png)
 
 ## Quick start
 
